@@ -9,7 +9,7 @@ import { optionsMariaDB, optionsSQLite3 } from "./options/config.js";
 const PORT = 8080;
 const app = express();
 const httpServer = new HttpServer(app);
-const io = new IOServer(httpserver);
+const io = new IOServer(httpServer);
 
 const products = new Container(optionsSQLite3, 'products');
 const messages = new Container(optionsMariaDB, 'messages');
