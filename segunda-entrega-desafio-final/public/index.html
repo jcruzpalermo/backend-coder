@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- CSS only BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Desafio </title>
+</head>
+
+<body>
+    <h1 class="row justify-content-center"> Pre entrega 2</h1>
+    <div class="container">
+        <form id="product-form" class="col" action="/api/products" method="POST">
+            <div class="row m-4">
+                <label class="form-label">Ingrese el nombre del producto</label>
+                <input  class="form-control" type="text" name="title" placeholder="Nombre">
+            </div>
+            <div class="row m-4">
+                <label class="form-label">Ingrese el precio del producto</label>
+                <input class="form-control" type="text" name="price" placeholder="Precio">
+            </div>
+            <div class="row m-4">
+                <label class="form-label">Ingrese la imagen del producto</label>
+                <input class="form-control" type="text" name="thumbnail" placeholder="Imagen">
+            </div>
+            <div class="row m-4">
+                <label class="form-label">Ingrese el codigo del producto</label>
+                <input class="form-control" type="text" name="code" placeholder="Código">
+            </div>
+            <div class="row m-4">
+                <label class="form-label">Ingrese la descripción del producto</label>
+                <input class="form-control" type="text" name="description" placeholder="Descripción">
+            </div>
+            <div class="row m-4">
+                <label class="form-label">Ingrese el stock del producto</label>
+                <input class="form-control" type="text" name="stock" placeholder="stock">
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div id="list-products">
+        <!-- acá se va a renderizar la lista de productos del handlebars -->
+    </div>
+
+    <div>
+        <h1 class="row justify-content-center">CHAT</h1>
+        <form id="chat-form">
+            <input type="text" name="message" placeholder="Escriba su mensaje">
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="chat-messages">
+            <!-- acá se va a renderizar el chat con handlebars -->
+        </div>
+    </div>
+
+    <script src="./assets/client.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

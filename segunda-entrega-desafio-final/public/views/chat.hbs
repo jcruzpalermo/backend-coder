@@ -1,0 +1,13 @@
+<div>
+
+    <div id="chat-screen">
+        {{#if messages.length}}
+            {{#each messages}}
+            <div class="line-chat">
+                <p class="chat-time">{{this.messageSendAt}}</p>
+                <p class="line-message"> {{this.message}}</p>
+            </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
