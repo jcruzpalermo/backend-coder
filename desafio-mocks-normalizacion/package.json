@@ -1,0 +1,28 @@
+{
+  "name": "desafio-mocks-normalizacion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "DBscript": "node ./store/script.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.3.0",
+    "handlebars": "^4.7.7",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "normalizr": "^3.6.2",
+    "pug": "^3.0.2",
+    "socket.io": "^4.5.4",
+    "sqlite3": "^5.1.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}
