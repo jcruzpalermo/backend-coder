@@ -1,0 +1,33 @@
+{
+  "name": "inicio-de-sesion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "joi": "^17.7.0",
+    "knex": "^2.3.0",
+    "mongoose": "^6.8.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.5.4",
+    "sqlite3": "^5.1.4"
+  }
+}
