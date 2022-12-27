@@ -1,7 +1,7 @@
 import { ContainerMongoDB } from "../../container/index.js";
 import { CartModel } from "../../models/index.js";
 
-export class CartsMongo extends ContainerMongoDB {
+export class CartsMongoDB extends ContainerMongoDB {
     constructor() {
         super({
             name: CartModel.CartCollection,
