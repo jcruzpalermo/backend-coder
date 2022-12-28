@@ -5,7 +5,6 @@ import { Strategy as GithubStrategy } from "passport-github2";
 import { UserDao } from "../dao/index.js";
 import { BCRYPT_VALIDATION, ERRORS_UTILS } from '../utils/index.js';
 
-
 const init = () => {
 
     passport.serializeUser((user, done) => {

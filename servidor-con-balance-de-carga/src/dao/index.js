@@ -1,4 +1,4 @@
-import { CartsMongoDB, CartFileSystem } from './Carts/index.js'
+import { CartsMongo, CartFileSystem } from './Carts/index.js'
 import { ProductsMongo, ProductBataBase, ProductFileSystem } from './Products/index.js'
 // import { MessagesDataBase, MessagesFileSystem } from './Messages/index.js'
 import { MongoDBService } from '../services/index.js'
@@ -13,7 +13,7 @@ const getSelectedDaos = () => {
             MongoDBService.init();
             return {
                 ProductDao: new ProductsMongo(),
-                CartDao: new CartsMongoDB(),
+                CartDao: new CartsMongo(),
                 // MessageDao: new MessagesMongo() **NO CREADO**
                 UserDao: new UsersMongo()
             }
@@ -29,7 +29,7 @@ const getSelectedDaos = () => {
         case 'database': {
             return {
                 ProductDao: new ProductBataBase(),
-                CartDao: new CartsMongoDB(),
+                CartDao: new CartDatabase(),
                 // MessageDao: new MessagesDataBase(),
                 UserDao: new UsersMongo(),
             }
