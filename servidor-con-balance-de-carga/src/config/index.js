@@ -11,7 +11,7 @@ const SQL_LITE = SQLiteService
 
 const config = {
     SERVER: {
-        PORT: process.env.PORT || 8080,
+        PORT: process.argv[2] || process.env.PORT || 8080,
         SELECTED_DATABASE: process.env.SELECTED_DB ?? 'database'
     },
 

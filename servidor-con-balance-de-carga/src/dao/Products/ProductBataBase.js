@@ -4,6 +4,6 @@ import { config } from '../../config/index.js'
 
 export class ProductBataBase extends ContainerDataBase {
     constructor() {
-        super(config.DATABASE.maria)
+        super(config.DATABASE.maria.MARIA_DB)
     }
 }

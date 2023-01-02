@@ -16,36 +16,29 @@ import {
 } from './config/index.js'
 import passport from 'passport'
 
-const cluster = require('cluster')
-const os = require('os')
+import cluster from 'cluster';
 
-const {
-    PORT,
-    MODE
-} = parseArgs(process.argv.slice(2), {
-    alias: {
-        p: "PORT",
-        m: "MODE",
-    },
-    default: {
-        PORT: 8080,
-        MODE: "FORK",
-    }
-})
+import  parseArgs from 'minimist'
+const args = parseArgs(process.argv.slice(2))
+const CLUSTER = args.CLUSTER
 
-if (MODE === 'CLUSTER' && cluster.isPrimary) {
-    const numCpus = os.cpus().length
-    console.log('SERVIDOR MAESTRO DEL CLUSTER: ')
-    console.log('Número de procesadores: ' + numCpus)
-    console.log('PID:' + process.pid)
-    for (let i = 0; i < numCpus; i++) {
-        cluster.fork()
-        }
-        cluster.on('exit', worker => {
-            console.log('Worker ' + process.pid + ' exit')
+if (CLUSTER) {
+    if (cluster.isPrimary) {
+        console.log(`CLUSTER corriendo en nodo primario ${process.pid} - Puerto ${config.SERVER.PORT}`);
+
+        for (let i = 0; i < INFO.numeroCPUs; i++) {
             cluster.fork()
-        })
-        } else {
+        }
+        cluster.on(`exit`, worker => {
+            console.log(`Worker ${worker.process.pid} finalizado.`);
+            cluster.fork();
+        });
+    } else {
+        console.log(`Nodo Worker corriendo en el proceso ${process.pid}`);
+    }
+} else {
+    console.log(`No es un cluster`);
+}
 
 const app = express()
 
@@ -78,4 +71,4 @@ app.use('/api/cart', CartRouter)
 
 const server = app.listen(config.SERVER.PORT, () => console.log(`Server inicializado en el puerto ${config.SERVER.PORT} - Desafio 13 - Inicio de sesión`))
 server.on('error', error => console.log(`Error del servidor: ${error}`))
-        }
+        
