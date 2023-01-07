@@ -50,21 +50,7 @@ const init = () => {
             done(error)
         }
     }))
-
-    passport.use('github', new GithubStrategy({
-        clientID: config.PASSPORT.GITHUB.GITHUB_CLIENT_ID,
-        clientSecret: config.PASSPORT.GITHUB.GITHUB_CLIENT_SECRET,
-        callbackURL: config.PASSPORT.GITHUB.GITHUB_CLIENT_CALLBACK_URL,
-        scope: ['user:email']
-    }, async (accessToken, refreshToken, profile, done) => {
-        try {
-            // fs.writeFileSync('./data.json', JSON.stringify(profile, null, 3))
-
-            const githubEmail = profile.emails?.[0].value
-
-            if (!githubEmail) return done(null, false)
-
-            const user = await UserDao.getOne({ email: githubEmail })
+, async (accessToken, refreshToken, profile, done) => {
 
             if (user) {
                 const userResponse = {
@@ -76,12 +62,6 @@ const init = () => {
                 return done(null, userResponse)
             }
 
-            const newUser = {
-                email: githubEmail,
-                name: profile._json.name,
-                lastname: "--",
-
-            }
 
             const createUser = await UserDao.save(newUser)
 
@@ -93,14 +73,8 @@ const init = () => {
 
             done(null, userResponse)
 
-        } catch (error) {
-            res.send({ sucess: false, message: ERRORS_UTILS.USERS.NO_USER_OR_PASSWORD })
-            console.log(`error from middlewares/passportAuth - GithubStrategy`)
-            done(error)
-        }
-
     }
-    ))
+    
 }
 
 export const PassportAuth = {
