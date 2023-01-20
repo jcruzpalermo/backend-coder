@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node ./src/server.js",
     "server": "nodemon --inspect ./src/index.js -p 3030",
-    "dev": "nodemon src/index.js -p 8080 -m FORK",
+    "dev": "nodemon src/index.js -p 8080 cluster",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

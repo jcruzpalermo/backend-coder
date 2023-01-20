@@ -3,23 +3,25 @@ import {
     ProductRouter,
     CartRouter,
     AuthRouter,
-    Separado
-} from './routes/index.js'
+    
+} from './src/routes/index.js'
 import cors from 'cors'
 
 import {
     PassportAuth
-} from './middlewares/index.js'
+} from './src/middlewares/index.js'
 import session from 'express-session'
 import {fileURLToPath} from 'url';
 import {
     config
-} from './config/index.js'
+} from './src/config/index.js'
 import passport from 'passport'
 import path from 'path';
 import cluster from 'cluster';
-import logger from "./loggers/Log4jsLogger.js";
-import loggerMiddleware from "./middlewares/routesLogger.middleware.js";
+import logger from "./src/loggers/Log4jsLogger.js";
+
+
+import loggerMiddleware from "./src/middlewares/routesLogger.middlewares.js";
 import minimist from 'minimist';
 import compression from 'compression';
 import  parseArgs from 'minimist'
@@ -75,21 +77,16 @@ app.use(express.static('./public'))
 app.use(compression());
 
 
-const options = {
-    alias: {
-        "p": "PORT"
-    },
-    default: {
-        "PORT": 8080
-    }};
+
 
 app.use('/api/auth', AuthRouter)
 app.use('/api/products', ProductRouter)
 app.use('/api/cart', CartRouter)
 
 
-const { PORT } = minimist(process.argv.slice(2), options);
 
+
+const PORT = process.env.PORT;
 const server = app.listen(PORT, () => {
     logger.info(`🚀 Server started at http://localhost:${PORT}`)
     })
