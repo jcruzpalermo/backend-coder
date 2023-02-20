@@ -1,0 +1,67 @@
+<div>
+    <h1 class="title">Lista de productos</h1>
+
+    <div style="display: flex; flex-direction: row; align-content: center; justify-content: center;">
+        <div style="display: flex; justify-content: center; padding: 30px 10px 30px 10px; ">
+            <button class="btn btn-dark mt-2" style="width: 10rem;" onclick="location.href='/api/products/create-product'">CREAR PRODUCTO</button>
+        </div>
+
+        <div style="display: flex; justify-content: center; padding: 30px 10px 30px 10px; ">
+            <button class="btn btn-dark mt-2" style="width: 10rem;" onclick="location.href='/api/auth/login'">VOLVER AL INICIO</button>
+        </div>
+
+        <div style="display: flex; justify-content: center; padding: 30px 10px 30px 10px;">
+            <button class="btn btn-dark mt-2" style="width: 10rem;" onclick="#">VER SELECCIONADOS</button>
+        </div>
+
+    </div>
+
+
+    <table class="product-list table table-striped table-hover border-dark align-middle">
+
+        {{#if data.length}}
+        <tr>
+            <th>Título</th>
+            <th>Precio</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Stock</th>
+            <th>Miniatura</th>
+            <th>Comprar</th>
+
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.stock}}</td>
+            <td><img height="72px" width="72px" src={{this.thumbnail}} /></td>
+            <td><button class="btn btn-dark mt-2" style="width: 10rem;" onclick="#">AGREGAR AL CARRITO</button></td>
+        </tr>
+        {{/each}}
+        {{else}}
+
+        <p>No hay productos ingresados</p>
+        {{/if}}
+    </table>
+    <br>
+
+
+</div>
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid;
+    }
+    .title {
+        text-align: center;
+    }
+    .product-list {
+        width: 80%;
+        margin-left: 10%;
+    }
+</style>
