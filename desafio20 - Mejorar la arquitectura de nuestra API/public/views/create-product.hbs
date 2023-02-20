@@ -1,0 +1,37 @@
+<div class="flex justify-center" style="padding: 30px 0 30px 30px">
+    <div class="mt-10 w-1/4 bg-gray-800 py-10 px-10 rounded-box">
+        <div class="mb-5 text-black">
+            <h2 class="text-3xl mb-1">CREAR NUEVO PRODUCTO</h2>
+        </div>
+        <div class="card text-bg-light mb-3" style="max-width: 30rem; border: 1px">
+            <div class="card-header">Producto nuevo</div>
+            <div class="card-body">
+                <form action="/api/products/create-product" method="post" role="form" autocomplete="off">
+
+                    <input class="mt-2" id="title" name="title" placeholder="Ingresa el nombre del producto" class="input input-bordered w-full"
+                        type="text" style="width: 20rem" required />
+
+                    <input class="mt-2" id="description" name="description" placeholder="Ingresa la descripcion del producto"
+                        class="input input-bordered w-full" style="width: 20rem" type="text" required />
+
+                    <input class="mt-2" id="code" name="code" placeholder="Ingresa el código del producto"
+                        class="input input-bordered w-full" style="width: 20rem" type="text" required />
+
+                    <input class="mt-2" id="price" name="price" placeholder="Ingresa el precio del producto"
+                        class="input input-bordered w-full" style="width: 20rem" type="number" required />
+
+                    <input class="mt-2" id="thumbnail" name="thumbnail" placeholder="Ingresa la imagen del producto"
+                        class="input input-bordered w-full" style="width: 20rem" type="text" required />
+
+                    <input class="mt-2" id="stock" name="stock" placeholder="Ingresa el stock del producto" class="input input-bordered w-full"
+                        type="number" style="width: 20rem" required />
+
+                    <input class="btn btn-secondary mt-2" type="submit" style="width: 10rem;" value="AGREGAR" />
+                    <button class="btn btn-dark mt-2" style="width: 10rem" onclick="location.href='/'"> VOLVER AL INICIO
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
