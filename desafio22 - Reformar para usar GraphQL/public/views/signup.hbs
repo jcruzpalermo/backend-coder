@@ -1,0 +1,40 @@
+<div class="flex justify-center" style="padding: 30px 0 30px 30px">
+    <div class="mt-10 w-1/4 bg-gray-800 py-10 px-10 rounded-box">
+        <div class="mb-5 text-black">
+            <h2 class="text-3xl mb-1">SIGN UP / REGISTRARSE</h2>
+        </div>
+        <div class="card text-bg-light mb-3" style="max-width: 30rem; border: 1px">
+            <div class="card-header">Sign in</div>
+            <div class="card-body">
+                <form action="/api/auth/signup" method="post" role="form" autocomplete="off">
+
+                    <input class="mt-2" id="name" name="name" placeholder="Ingresa tu nombre" class="input input-bordered w-full"
+                        type="text" style="width: 20rem" required />
+
+                    <input class="mt-2" id="lastname" name="lastname" placeholder="Ingresa tu apellido"
+                        class="input input-bordered w-full" style="width: 20rem" type="text" required />
+
+                    <input class="mt-2" id="adress" name="adress" placeholder="Ingresa tu dirección"
+                        class="input input-bordered w-full" style="width: 20rem" type="text" required />
+
+                    <input class="mt-2" id="age" name="age" placeholder="Ingresa tu edad"
+                        class="input input-bordered w-full" style="width: 20rem" type="number" required />
+
+                    <input class="mt-2" id="celPhone" name="celPhone" placeholder="Ingresa tu número de celular"
+                        class="input input-bordered w-full" style="width: 20rem" type="number" required />
+
+                    <input class="mt-2" id="email" name="email" placeholder="Ingresa tu email" class="input input-bordered w-full"
+                        type="email" style="width: 20rem" required />
+
+                    <input class="mt-2" id="password" name="password" placeholder="Ingresa tu contraseña" class="input input-bordered w-full"
+                        type="password" style="width: 20rem" required />
+
+                    <input class="btn btn-secondary mt-2" type="submit" style="width: 10rem;" value="SIGN UP" />
+                    <button class="btn btn-dark mt-2" style="width: 10rem" onclick="location.href='/'"> VOLVER AL INICIO
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
